@@ -1,7 +1,11 @@
 all: ./lib/libContainer.a
 
-# This is the rule you need to fille out
+# This is the rule you need to fill out
 ./lib/libContainer.a:
+	g++ ./src/ListNode.cpp -I./include/ -c
+	g++ ./src/Vector.cpp -I./include/ -c
+	g++ ./src/List.cpp -I./include/ -c
+	ar rcs ./lib/libContainer.a ./src/ListNode.o ./src/Vector.o ./src/List.o
 
 test-Vector: ./lib/libContainer.a ./tst/test-Vector.cpp
 	g++ -o ./bin/test-Vector.out -I./include/ \
