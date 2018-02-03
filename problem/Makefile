@@ -24,7 +24,8 @@ test-List: ./lib/libContainer.a ./tst/test-List.cpp
 
 test-all: test-Vector test-ListNode test-List
 
+# `make clean` edited to ignore errors and continue cleaning
 clean:
-	rm ./lib/*.a
-	rm ./bin/*.out
-	rm ./src/*.o
+	-rm ./lib/*.a
+	-rm ./bin/*.out
+	-rm ./src/*.o
