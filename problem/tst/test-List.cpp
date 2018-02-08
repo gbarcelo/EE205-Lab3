@@ -1,26 +1,22 @@
 #include <iostream>
 #include <cassert>
 #include "List.hpp"
-
 int main() {
     List v;
-
-    auto print_list = [](List& l) {
+  auto print_list = [](List& l) {
         for (int i = 0; i < l.size() ; ++i) {
             std::cout << "l[" << i << "]: " << l[i] << std::endl;
         }
     };
-
     v.insert(0, 0);
     print_list(v);
-
     v.insert(v.size(), 1);
     print_list(v);
 
     v.append(2);
     print_list(v);
 
-
+std::cout << "Hiii" << std::endl;
     for (int i = 0; i < v.size(); ++i) {
         assert(i == v.get(i));
         assert(i == v[i]);
@@ -44,7 +40,6 @@ int main() {
     }
     assert(v[0] == 2);
     assert(v[1] == 3);
-
     try {
         v.remove(-1);
     } catch (char const* c) {
@@ -65,7 +60,6 @@ int main() {
     } catch (...) {
         assert(false);
     }
-
     v.append(1);
     List w(std::move(v));
 
